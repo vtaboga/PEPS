@@ -1,0 +1,10 @@
+########################## Training Parameters ##########################
+training.model = @SSM
+training.batch_length = %PREDICTION_HORIZON
+training.training_batch_size = 64
+training.validation_batch_size = 1
+training.loss_temperature_weight = 0.1
+training.training_steps = 20000
+training.validation_every = 1000
+training.early_stopping = True
+training.validation = True

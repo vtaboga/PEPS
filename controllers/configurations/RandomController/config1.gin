@@ -1,0 +1,7 @@
+RandomController.maximum_duration = 48
+RandomController.minimum_duration = 4
+RandomController.mininum_setpoint_change = -3
+RandomController.maximum_setpoint_change = 2
+RandomController.setpoint_change_step = 0.25
+RandomController.heating_schedule = {'end_heating': "15/04", 'start_heating': "15/10"}
+RandomController.off_season_change = 10

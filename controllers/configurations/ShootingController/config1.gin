@@ -1,0 +1,12 @@
+ShootingController.prediction_model = @SSM
+ShootingController.planning_timesteps = 2
+ShootingController.mininum_setpoint_change = -3
+ShootingController.maximum_setpoint_change = 2
+ShootingController.setpoint_change_step = 0.25
+ShootingController.temperature_weight = 10.0
+ShootingController.projected_gradient_params = {
+    'max_iterations_number': 1000,
+    'alpha': 0.5 ,
+    'beta': 0.5,
+    'line_search_max_iterations': 10
+}

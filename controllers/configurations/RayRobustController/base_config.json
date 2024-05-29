@@ -1,0 +1,11 @@
+{
+"planning_timesteps": 2,
+"seed": 1,
+"mininum_setpoint_change": -2,
+"maximum_setpoint_change": 0,
+"setpoint_change_step": 0.5,
+"slack_power_constraint": 0.0,
+"temperature_weight": 10.0,
+"n_setpoint_trajectories": 100,
+"n_random_trajectories": 10
+}

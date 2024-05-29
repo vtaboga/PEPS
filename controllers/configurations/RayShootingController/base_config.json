@@ -1,0 +1,13 @@
+{    "planning_timesteps": 2,
+    "mininum_setpoint_change": -3,
+    "maximum_setpoint_change": 2,
+    "setpoint_change_step": 0.25,
+    "slack_power_constraint": 0.0,
+    "temperature_weight": 10.0,
+    "projected_gradient_params": {
+      "max_iterations_number": 1000,
+      "alpha": 0.5,
+      "beta": 0.5,
+      "line_search_max_iterations": 10
+          }
+}

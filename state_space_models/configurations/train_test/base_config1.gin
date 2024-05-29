@@ -1,0 +1,7 @@
+########################## Global Scope ##########################
+PREDICTION_HORIZON = 8
+N_LAGS = 4
+STATE_SIZE = 2
+OBSERVATION_SIZE = 2
+ACTION_SIZE = 8
+INCLUDE_ACTION_LAGS = False

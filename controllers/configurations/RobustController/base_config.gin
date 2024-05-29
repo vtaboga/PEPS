@@ -1,0 +1,10 @@
+RobustController.prediction_model = @RSSM
+RobustController.seed = 1
+RobustController.planning_timesteps = 2
+RobustController.mininum_setpoint_change = -3
+RobustController.maximum_setpoint_change = 2
+RobustController.setpoint_change_step = 0.25
+RobustController.slack_power_constraint = 0.0
+RobustController.temperature_weight = 10.0
+RobustController.n_setpoint_trajectories = 100
+RobustController.n_random_trajectories = 20

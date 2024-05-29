@@ -1,0 +1,4 @@
+########################## Test Parameters ##########################
+test.model = @ContinuousSSM
+test.batch_size = 1
+test.batch_length = %PREDICTION_HORIZON

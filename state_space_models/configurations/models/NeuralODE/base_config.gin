@@ -1,0 +1,17 @@
+NeuralODE.seed = 1
+NeuralODE.model_output = None
+NeuralODE.observation_size = %OBSERVATION_SIZE
+NeuralODE.state_size = %OBSERVATION_SIZE
+NeuralODE.action_size = %ACTION_SIZE
+NeuralODE.n_lags = %N_LAGS
+NeuralODE.latent_state_size = 100
+NeuralODE.depth = 2
+NeuralODE.include_setpoint_change_difference = False
+NeuralODE.prediction_horizon = %PREDICTION_HORIZON
+NeuralODE.missing_data_proba = 0
+NeuralODE.mean_obs_period = 0
+NeuralODE.learning_rate = 0.003
+NeuralODE.missing_data_mask = -100
+NeuralODE.include_timestep_duration = False
+NeuralODE.resample_future_states = False
+NeuralODE.include_action_lags = False
