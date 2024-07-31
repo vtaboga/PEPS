@@ -62,6 +62,20 @@ python main.py single_zone_building -sim_id 1 -m SSM --model_config 1 -c Shootin
 
 ## Singularity containers
 
+- To create a singularity container, you may use the .def file `peps_container.def`. In a terminal, use the following command to create the container:
+
+```bash
+sudo singularity build peps_container.sif peps_container.def
+```
+
+The data and configurations are not directly included in the container, you should bind the container's directories to the directories containing the necessary configurations and data, as well as the directory you want to save the results to. For instance:
+
+```bash
+singularity exec -B ./models_config/SSM:/home/PEPS/state_space_models/configurations/models/SSM -B ./control_1:/home/PEPS/common/results/lowrise_apartments/simulation_1/control_results -B ./base_sim_results:/home/PEPS/common/results/lowrise_apartments/simulation_3 -B ./train_test_config:/PEPS/thermulator/state_space_models/configurations/train_test -B ./coordinator_config:/home/PEPS/building_coordinator/configurations/DistributedCoordinator -B ./simulation_config:/home/PEPS/common/configurations -B ./controllers_config:/home/PEPS/controllers/configurations  -B ./building/buildings_blueprint:/home/PEPS/energyplus_simulator/buildings_blueprint -B ./building/weather:/home/PEPS/energyplus_simulator/weather ./thermulator_cont.sif /bin/bash -c"
+```
+
+Containers are convenient for computation on a remote cluster and for reproducibility of the experiments. Refer to the Singularity documentation for more information.
+
 ## Handling time steps in EnergyPlus
 
 ```  --| beginning: observe set points and weather|---| end: observe energy consumption and temperature|--> ```
