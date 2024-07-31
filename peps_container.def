@@ -1,0 +1,34 @@
+BootStrap: debootstrap
+OSVersion: focal
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+
+
+%post
+    sed -i 's/$/ universe/' /etc/apt/sources.list
+    apt-get update
+    apt-get -y install vim
+    apt-get clean
+    apt-get update && apt-get install -y wget build-essential
+    apt install -y git
+    cd ../home
+
+    wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+    bash Anaconda3-2023.09-0-Linux-x86_64.sh -b -p /home/anaconda3
+    export PATH="/home/anaconda3/bin:$PATH"
+    conda create -n venv python=3.10 -y
+
+    /home/anaconda3/bin/conda init bash
+    bash -c "source /home/anaconda3/bin/activate venv"
+    rm Anaconda3-2023.09-0-Linux-x86_64.sh
+
+    wget https://github.com/NREL/EnergyPlus/releases/download/v22.1.0/EnergyPlus-22.1.0-ed759b17ee-Linux-Ubuntu20.04-x86_64.sh
+    chmod +x EnergyPlus-22.1.0-ed759b17ee-Linux-Ubuntu20.04-x86_64.sh
+    echo "y" | ./EnergyPlus-22.1.0-ed759b17ee-Linux-Ubuntu20.04-x86_64.sh
+    rm EnergyPlus-22.1.0-ed759b17ee-Linux-Ubuntu20.04-x86_64.sh
+
+
+    git clone https://github.com/vtaboga/PEPS.git
+    
+    cd PEPS
+    pip install -r requirements.txt
+
