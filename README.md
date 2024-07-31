@@ -83,6 +83,7 @@ and the power and the temperature are averaged over a time step.
 ## Associated papers
 
 [Neural Differential Equations for Temperature Control in Buildings under Demand Response Programs](https://www.sciencedirect.com/science/article/pii/S030626192400816X), V. Taboga, C. Gehring, M. Le Cam, H. Dagdougui, P. L. Bacon.
-[A Distributed ADMM-based Deep Learning Approach for Thermal Control in Multi-Zone Buildings under Demand Response Events](https://arxiv.org/abs/2312.05073), V. Taboga, H. Dagdougui
+
+[A Distributed ADMM-based Deep Learning Approach for Thermal Control in Multi-Zone Buildings under Demand Response Events](https://arxiv.org/abs/2312.05073), V. Taboga, H. Dagdougui.
 
 
