@@ -1,0 +1,7 @@
+DistributedCoordinator.epsilon = 0.01
+DistributedCoordinator.rho = 10.0
+DistributedCoordinator.slack_maximum_power = 0.0
+DistributedCoordinator.horizon = 4
+DistributedCoordinator.planning_timestep = 2
+DistributedCoordinator.weight_objective = 10
+DistributedCoordinator.maximum_admm_iterations = 10

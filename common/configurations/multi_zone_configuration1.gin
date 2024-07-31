@@ -1,0 +1,28 @@
+include './common/configurations/base_configuration3.gin'
+
+MultiZoneBuildingSimulation.control_experiment_id = 1
+MultiZoneBuildingSimulation.simulation_id = %SIMULATION_ID
+MultiZoneBuildingSimulation.building_type = %BUILDING_TYPE
+MultiZoneBuildingSimulation.number_of_zones = 18
+MultiZoneBuildingSimulation.heating_only = True
+MultiZoneBuildingSimulation.heating_period = True
+MultiZoneBuildingSimulation.weather_file = "weather_montreal_trudeau.epw"
+MultiZoneBuildingSimulation.controlled_zones_id = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+MultiZoneBuildingSimulation.zones_temperature = [20.0, 21.0, 22.0, 21.0, 22.0, 20.0, 20.0, 21.0, 22.0, 19.0, 20.0, 22.0, 22.0, 19.0, 20.0, 21.0, 22.0, 20.0]
+MultiZoneBuildingSimulation.observation_lags = %N_LAGS
+MultiZoneBuildingSimulation.prediction_horizon = %PREDICTION_HORIZON
+MultiZoneBuildingSimulation.controllers_type = ['RayShootingController']
+MultiZoneBuildingSimulation.controllers_configuration = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+MultiZoneBuildingSimulation.base_model_config = 2
+MultiZoneBuildingSimulation.models_type = ['SSM']
+MultiZoneBuildingSimulation.models_class = [@config1/SSM, @config2/SSM]
+MultiZoneBuildingSimulation.models_configuration = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+MultiZoneBuildingSimulation.coordinator_class = @DistributedCoordinator
+MultiZoneBuildingSimulation.coordinator_config = 1
+MultiZoneBuildingSimulation.consumption_schedule_name = "lowrise_apartments_montreal"
+MultiZoneBuildingSimulation.energyplus_timesteps_in_hour = %ENERGYPLUS_TIMESTEPS_IN_HOUR
+MultiZoneBuildingSimulation.warmup_iterations = 3
+MultiZoneBuildingSimulation.simulation_start_month = 2
+MultiZoneBuildingSimulation.simulation_start_day = 1
+MultiZoneBuildingSimulation.simulation_end_month = 2
+MultiZoneBuildingSimulation.simulation_end_day = 5
