@@ -17,3 +17,4 @@ SSM.missing_data_proba = 0
 SSM.mean_obs_period = 0
 SSM.include_timestep_duration = False
 SSM.resample_future_states = False
+SSM.zone_id = 0

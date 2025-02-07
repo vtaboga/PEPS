@@ -1,0 +1,5 @@
+RuleBasedController.prediction_model = @SSM
+RuleBasedController.planning_timesteps = 2
+RuleBasedController.preheating_period = 4
+RuleBasedController.lower_setpoint = -2.0
+RuleBasedController.upper_setpoint = 1.0

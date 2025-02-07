@@ -67,6 +67,7 @@ def process_data(
         # standardize data (except cyclical features)
         with open(processed_data_dir + 'processed_state_indexes.json', 'r') as f:
             processed_state_indexes = json.load(f)
+
         standardize_data(
             number_of_zones=number_of_zones,
             processed_data_dir=processed_data_dir,
@@ -77,6 +78,7 @@ def process_data(
             resample_data=resample_training_data,
             prediction_horizon=prediction_horizon
         )
+
         if len(validation_data_indexes) > 0:
             standardize_data(
                 number_of_zones=number_of_zones,
@@ -88,6 +90,7 @@ def process_data(
                 resample_data=resample_test_data,
                 prediction_horizon=prediction_horizon
             )
+
         if len(test_data_indexes) > 0:
             standardize_data(
                 number_of_zones=number_of_zones,
@@ -271,8 +274,8 @@ def standardize_data(
 
     for zone_id in range(number_of_zones):
         processed_data = []
-        for i in data_indexes:
-            filename = f'zone{zone_id}/processed_data{i}.csv'
+        for idx, i in enumerate(data_indexes):
+            filename = f'zone{zone_id}/processed_data{idx}.csv'
             filepath = os.path.join(processed_data_dir, filename)
             data = np.loadtxt(filepath, delimiter=',', skiprows=1)
             processed_data.append(data)
@@ -310,18 +313,23 @@ def standardize_data(
         # don't normalize cyclical features and set point change
         mean[cyclical_features_indexes] = np.zeros(len(cyclical_features_indexes))
         std[cyclical_features_indexes] = np.ones(len(cyclical_features_indexes))
+
         if setpoint_change:
             mean[delta_set_point_index] = 0
             std[delta_set_point_index] = 1
+
         mean[timestamp_indexes] = 0
         std[timestamp_indexes] = 1
         mean_matrix = np.tile(mean, (processed_data.shape[0], 1))
         std_matrix = np.tile(std, (processed_data.shape[0], 1))
         norm_data = (processed_data - mean_matrix) / std_matrix
+
         if resample_data:
             norm_data = resampling(norm_data, state_indexes, prediction_horizon)
+
         if not os.path.isdir(processed_data_dir + f'/zone{zone_id}'):
             os.makedirs(processed_data_dir + f'/zone{zone_id}')
+
         np.savetxt(processed_data_dir + f'/zone{zone_id}/{data_type}.csv', norm_data, delimiter=',')
 
 

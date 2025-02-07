@@ -5,6 +5,8 @@ import pandas as pd
 import jax.numpy as jnp
 
 from typing import List
+
+from controllers.shooting_controller import ShootingController
 from common.system import System
 from common.utils import save_control_memory, get_log_filename
 from off_line_computation.utils import load_norm_constants, get_processed_state_indexes
@@ -54,8 +56,12 @@ class SingleZoneBuildingSimulation(System):
             simulation_end_day=simulation_end_day,
         )
 
+        print(f"controller class: {controller_class}")
+
         try:
-            schedule_path = f'common/configurations/consumption_schedule/{consumption_schedule_name}.csv'
+            # TODO: Do not hard code
+            schedule_path = "/Users/hslu-n0006897/Documents/repos/PEPS/common/configurations/consumption_schedule/schedule_harrison_hever_2021.csv"
+            # schedule_path = f'common/configurations/consumption_schedule/{consumption_schedule_name}.csv'
             self.consumption_schedule = pd.read_csv(schedule_path)
             self.consumption_schedule['date'] = pd.to_datetime(self.consumption_schedule['date'])
         except FileNotFoundError as e:
@@ -68,12 +74,15 @@ class SingleZoneBuildingSimulation(System):
         mean, std = load_norm_constants(self.zone_id, data_path)
         state_indexes = get_processed_state_indexes(data_path)
         self.controller = controller_class(
-            zone_id=0,  # Single zone building
+            # TODO: kwarg error (comment out for now)
+            zone_id=self.zone_id,  # Single zone building
             mean_constants=mean,
             std_constants=std,
             state_indexes=state_indexes,
             model_path=model_path
         )
+        print(f"self.controller: {self.controller}")
+
         self.n_lags = self.controller.prediction_model.n_lags
         self.slack_power_constraint = slack_power_constraint
         self.control_memory = {
@@ -140,6 +149,7 @@ class SingleZoneBuildingSimulation(System):
                 power_schedule = self.read_consumption_schedule(self.iteration_counter)
                 slacked_power_schedule = power_schedule * (1 - self.slack_power_constraint)
                 temperature_targets = np.tile(self.building.zones_temperature_setpoint, (self.horizon, 1))
+
                 setpoint_changes, power = self.controller.run(
                     observation=current_obs[self.zone_id],
                     weather=weather_forecast,

@@ -47,7 +47,6 @@ def run_single_zone_building_simulation(args) -> None:
     :param args:
     :return:
     """
-
     single_zone_building_simulation(
         simulation_configuration=args.simulation_configuration,
         controller_type=args.controller_type,

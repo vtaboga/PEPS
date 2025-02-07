@@ -132,6 +132,7 @@ def training(
     state_indexes = get_processed_state_indexes(data_path)
     norm_training_data = load_data(zone_id, data_path, 'training')
     training_data = prepare_batches(jnp.array(norm_training_data), batch_length)
+
     # Validation data
     if validation:
         norm_validation_data = load_data(zone_id, data_path, 'validation')

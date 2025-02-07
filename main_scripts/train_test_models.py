@@ -82,6 +82,7 @@ def main(
             configs=model_configs,
             simulation_id=simulation_id
         )
+
     if test:
         test_models(
             model_type=model_type,
