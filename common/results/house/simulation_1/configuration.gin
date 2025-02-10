@@ -24,7 +24,7 @@ BaseSimulation.simulation_start_month = 6
 BaseSimulation.warmup_iterations = 3
 BaseSimulation.weather_file = 'weather_chicago_harrison_dever_2018.epw'
 BaseSimulation.zones_number = %NUMBER_OF_ZONES
-BaseSimulation.zones_temperature = [22.0]
+BaseSimulation.zones_temperature = [21.0]
 
 # Parameters for RandomController:
 # ==============================================================================

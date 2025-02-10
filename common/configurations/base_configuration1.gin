@@ -2,8 +2,8 @@
 BUILDING_TYPE = 'house'
 SIMULATION_ID = 1
 NUMBER_OF_ZONES = 1
-PREDICTION_HORIZON = 8
-N_LAGS = 4
+PREDICTION_HORIZON = 8 #4
+N_LAGS = 4 #5
 PROCESSED_DATA_DIR = './off_line_computation/data/'
 RESULTS_DIR = './common/results/'
 SAVED_MODEL_DIR = './controllers/saved_models/'

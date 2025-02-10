@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.07 10:25
+Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 10:23
 ! <Version>, Version ID
  Version, 22.1
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
@@ -192,9 +192,9 @@ Environment:WarmupDays,  6
 Environment,ANNUAL,WeatherFileRunPeriod,01/01/2017,01/04/2017,Sunday,4,Use RunPeriod Specified Day,Yes,Yes,No,Yes,Yes,Clark and Allen
 Environment:Daylight Saving,No,
 Environment:WarmupDays,  6
- Warmup Convergence Information,LIVING ZONE,RunPeriod: ANNUAL,1.2883640434E-002,0.1228712916,Pass,Pass,3.4744695799E-002,3.8685057106E-002,Pass,Pass
- Warmup Convergence Information,ATTIC_UNIT1,RunPeriod: ANNUAL,0.1619214098,0.2517257714,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,CRAWLSPACE_UNIT1,RunPeriod: ANNUAL,0.2169632692,0.2798092584,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LIVING ZONE,RunPeriod: ANNUAL,1.2856526671E-002,0.1113593026,Pass,Pass,3.5028168273E-002,3.9879708290E-002,Pass,Pass
+ Warmup Convergence Information,ATTIC_UNIT1,RunPeriod: ANNUAL,0.1619210637,0.2519200205,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,CRAWLSPACE_UNIT1,RunPeriod: ANNUAL,0.2169630123,0.2791908464,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 ! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
 Program Control:Threads/Parallel Sims, No,1, N/A, N/A, N/A, N/A, N/A, N/A
 End of Data

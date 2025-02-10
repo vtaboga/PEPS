@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.07 10:25,
+Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 10:23,
    ************* Beginning Zone Sizing Calculations
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
    **   ~~~   ** ..Location object=INTERNATIONAL FALLS INTL AP_MN_USA DESIGN_CONDITIONS
@@ -45,9 +45,6 @@ Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.07 10:25,
    **   ~~~   ** ...hot water temperature       = 48.20 C
    **   ~~~   ** ...Note: target water temperature should be less than or equal to the hot water temperature
    **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.
-   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed "COOLING COIL" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -3.10
-   **   ~~~   **  ... Occurrence info = ANNUAL, 01/01 00:00 - 00:03
-   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.
    ************* Simulation Error Summary *************
    ** Warning ** The following Report Variables were requested but not generated -- check.rdd file
    **   ~~~   ** Either the IDF did not contain these elements, the variable name is misspelled,
@@ -71,19 +68,13 @@ Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.07 10:25,
    *************  **   ~~~   **   This error occurred 7967 total times;
    *************  **   ~~~   **   during Warmup 0 times;
    *************  **   ~~~   **   during Sizing 0 times.
-   *************  **   ~~~   **   Max=1.858703  Min=0.20589
+   *************  **   ~~~   **   Max=1.858703  Min=0.205696
    *************
    *************  ** Warning ** "DISHWASHER_UNIT1" - Target water temperature should be less than or equal to the hot water temperature error continues...
    *************  **   ~~~   **   This error occurred 7967 total times;
    *************  **   ~~~   **   during Warmup 0 times;
    *************  **   ~~~   **   during Sizing 0 times.
-   *************  **   ~~~   **   Max=1.858703  Min=0.20589
-   *************
-   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed="COOLING COIL" - Low condenser dry-bulb temperature error continues...
-   *************  **   ~~~   **   This error occurred 1 total times;
-   *************  **   ~~~   **   during Warmup 0 times;
-   *************  **   ~~~   **   during Sizing 0 times.
-   *************  **   ~~~   **   Max=-3.1 [C]  Min=-3.1 [C]
+   *************  **   ~~~   **   Max=1.858703  Min=0.205696
    *************
    *************
    ************* ===== Final Error Summary =====
@@ -95,4 +86,4 @@ Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.07 10:25,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 5 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 18495 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  6.22sec
+   ************* EnergyPlus Completed Successfully-- 18494 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  6.22sec

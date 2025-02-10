@@ -1,7 +1,8 @@
 DistributedCoordinator.epsilon = 0.001
 DistributedCoordinator.rho = 10000
 DistributedCoordinator.slack_maximum_power = 0.05
-DistributedCoordinator.number_of_zones = 18
+#DistributedCoordinator.number_of_zones = 18
+DistributedCoordinator.number_of_zones = 1
 DistributedCoordinator.horizon = 4
 DistributedCoordinator.planning_timestep = 2
 DistributedCoordinator.weight_objective = 1

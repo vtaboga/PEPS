@@ -4,15 +4,24 @@ BaseSimulation.controller_class = RandomController
 BaseSimulation.simulation_id = %SIMULATION_ID
 BaseSimulation.building_type = %BUILDING_TYPE
 BaseSimulation.heating_only = False
+#BaseSimulation.heating_only = True
 BaseSimulation.weather_file = "weather_chicago_harrison_dever_2018.epw"
+#BaseSimulation.weather_file = "weather_chicago_harrison_dever_2021.epw"
 BaseSimulation.zones_number = %NUMBER_OF_ZONES
 BaseSimulation.controlled_zones_id = [0]
-BaseSimulation.zones_temperature = [22.0]
+BaseSimulation.zones_temperature = [21.0] #[22.0]
 BaseSimulation.observation_lags = %N_LAGS
 BaseSimulation.prediction_horizon = %PREDICTION_HORIZON
 BaseSimulation.energyplus_timesteps_in_hour = %ENERGYPLUS_TIMESTEPS_IN_HOUR
+
 BaseSimulation.simulation_start_month = 6
 BaseSimulation.simulation_start_day = 15
 BaseSimulation.simulation_end_month = 8
 BaseSimulation.simulation_end_day = 31
 BaseSimulation.warmup_iterations = 3
+
+#BaseSimulation.simulation_start_month = 1
+#BaseSimulation.simulation_start_day = 1
+#BaseSimulation.simulation_end_month = 3
+#BaseSimulation.simulation_end_day = 15
+#BaseSimulation.warmup_iterations = 6

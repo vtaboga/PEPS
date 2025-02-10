@@ -86,6 +86,7 @@ class ABCController(ABC):
         :param horizon:
         :return:
         """
+        print("--- ShootingController.make_predictions ---")
 
         inputs = self.process_input_data(
             observations=current_obs,
@@ -94,6 +95,8 @@ class ABCController(ABC):
             weather_lags=weather_lags,
             actions_lags=action_lags
         )
+
+        print(f"input.keys(): {inputs.keys()}")
 
         predictions = self.prediction_model.make_predictions(
             inputs=inputs['inputs'],

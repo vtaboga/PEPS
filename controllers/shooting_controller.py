@@ -60,6 +60,15 @@ class ShootingController(ABCController):
         self.projected_gradient_params = projected_gradient_params
         self.temperature_weight = temperature_weight
 
+        print(f"self.setpoint_change_index: {self.setpoint_change_index}")
+        print(f"self.planning_timesteps: {self.planning_timesteps}")
+        print(f"self.mininum_setpoint_change: {self.mininum_setpoint_change}")
+        print(f"self.maximum_setpoint_change: {self.maximum_setpoint_change}")
+        print(f"self.setpoint_change_step: {self.setpoint_change_step}")
+        print(f"self.prediction_horizon: {self.prediction_horizon}")
+        print(f"self.projected_gradient_params: {self.projected_gradient_params}")
+        print(f"self.temperature_weight: {self.temperature_weight}")
+
     @staticmethod
     def log_barrier(predictions, targets):
         difference = jnp.maximum(targets - predictions, 1e-40)
@@ -93,6 +102,15 @@ class ShootingController(ABCController):
         :param rho: Augmented Lagrangian parameter
         :return: An array containing the actions plan for the horizon on the zone (not normalized)
         """
+
+        print("--- ShootingController.run ---")
+
+        print(f"observation: {observation}")
+        print(f"weather: {weather}")
+        print(f"weather_lags: {weather_lags}")
+        print(f"action_lags: {action_lags}")
+        print(f"power_schedule: {power_schedule}")
+        print(f"energyplus_timestep_duration: {energyplus_timestep_duration}")
 
         power_schedule = self.process_power_schedule(
             observation=observation,
@@ -361,4 +379,3 @@ class RayShootingController(ShootingController):
 
     def get_maximum_setpoint_change(self) -> float:
         return self.maximum_setpoint_change
-
