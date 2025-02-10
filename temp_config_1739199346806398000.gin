@@ -1,3 +1,19 @@
+include './state_space_models/configurations/train_test/base_config1.gin' 
+include './state_space_models/configurations/models/SSM/config1.gin'
+include './controllers/configurations/ShootingController/config1.gin'
+ShootingController.prediction_model = @SSM
+ShootingController.planning_timesteps = 2
+ShootingController.mininum_setpoint_change = -3
+ShootingController.maximum_setpoint_change = 2
+ShootingController.setpoint_change_step = 0.25
+ShootingController.slack_power_constraint = 0.08
+ShootingController.temperature_weight = 10.0
+ShootingController.projected_gradient_params = {
+    'max_iterations_number': 1000,
+    'alpha': 0.5 ,
+    'beta': 0.5,
+    'line_search_max_iterations': 10
+}
 include './common/configurations/base_configuration1.gin'
 
 SingleZoneBuildingSimulation.simulation_id = %SIMULATION_ID
@@ -5,11 +21,11 @@ SingleZoneBuildingSimulation.building_type = %BUILDING_TYPE
 SingleZoneBuildingSimulation.weather_file = "weather_chicago_harrison_dever_2021.epw"
 SingleZoneBuildingSimulation.zones_temperature = [21.0]
 SingleZoneBuildingSimulation.observation_lags = %N_LAGS
-SingleZoneBuildingSimulation.heating_only = False
+SingleZoneBuildingSimulation.heating_only = True
 SingleZoneBuildingSimulation.heating_period = True
-SingleZoneBuildingSimulation.slack_power_constraint = 0.8
+SingleZoneBuildingSimulation.slack_power_constraint = 0.1
 SingleZoneBuildingSimulation.prediction_horizon = %PREDICTION_HORIZON
-SingleZoneBuildingSimulation.controller_class = ShootingController
+SingleZoneBuildingSimulation.controller_class = @ShootingController
 SingleZoneBuildingSimulation.consumption_schedule_name = "schedule_harrison_hever_2021"
 SingleZoneBuildingSimulation.energyplus_timesteps_in_hour = %ENERGYPLUS_TIMESTEPS_IN_HOUR
 SingleZoneBuildingSimulation.warmup_iterations = 5

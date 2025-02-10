@@ -1,9 +1,9 @@
 ShootingController.prediction_model = @SSM
-ShootingController.planning_timesteps = 2
+ShootingController.planning_timesteps = 2 # Re-planning occurs every 30 minutes
 ShootingController.mininum_setpoint_change = -3
 ShootingController.maximum_setpoint_change = 2
 ShootingController.setpoint_change_step = 0.25
-ShootingController.slack_power_constraint = 0.0
+ShootingController.slack_power_constraint = 0.08
 ShootingController.temperature_weight = 10.0
 ShootingController.projected_gradient_params = {
     'max_iterations_number': 1000,

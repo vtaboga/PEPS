@@ -1,4 +1,4 @@
-RandomController.maximum_duration = 48
+RandomController.maximum_duration = 192 #48
 RandomController.minimum_duration = 4
 RandomController.mininum_setpoint_change = -3
 RandomController.maximum_setpoint_change = 2

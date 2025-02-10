@@ -1,9 +1,9 @@
-Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 10:23,
+Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 18:07,
    ************* Beginning Zone Sizing Calculations
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
    **   ~~~   ** ..Location object=INTERNATIONAL FALLS INTL AP_MN_USA DESIGN_CONDITIONS
-   **   ~~~   ** ..Weather File Location=Chicago-Harrison-Dever.Crib.Lighthouse IL USA Custom-997338 WMO#=997338
-   **   ~~~   ** ..due to location differences, Latitude difference=[6.59] degrees, Longitude difference=[5.75] degrees.
+   **   ~~~   ** ..Weather File Location=Chicago-Harrison-Dever.Crib.Lighthouse IL USA SRC-TMYx WMO#=997338
+   **   ~~~   ** ..due to location differences, Latitude difference=[6.65] degrees, Longitude difference=[5.83] degrees.
    **   ~~~   ** ..Time Zone difference=[0.0] hour(s), Elevation difference=[43.73] percent, [157.00] meters.
    ** Warning ** GetHTSurfaceData: Surfaces with interface to Ground found but no "Ground Temperatures" were input.
    **   ~~~   ** Found first in surface=BGWALL_LOWER_LDF
@@ -36,15 +36,18 @@ Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 10:23,
    ** Warning ** CalcEquipmentFlowRates: "CLOTHES WASHER_UNIT1" - Target water temperature is greater than the hot water temperature (0.69 C)
    **   ~~~   **  Environment=INTERNATIONAL FALLS INTL AP ANN HTG 99.6% CONDNS DB, at Simulation time=01/21 00:00 - 00:15
    **   ~~~   ** ...target water temperature       = 48.89 C
-   **   ~~~   ** ...hot water temperature       = 48.20 C
+   **   ~~~   ** ...hot water temperature       = 48.19 C
    **   ~~~   ** ...Note: target water temperature should be less than or equal to the hot water temperature
    **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.
    ** Warning ** CalcEquipmentFlowRates: "DISHWASHER_UNIT1" - Target water temperature is greater than the hot water temperature (0.69 C)
    **   ~~~   **  Environment=INTERNATIONAL FALLS INTL AP ANN HTG 99.6% CONDNS DB, at Simulation time=01/21 00:00 - 00:15
    **   ~~~   ** ...target water temperature       = 48.89 C
-   **   ~~~   ** ...hot water temperature       = 48.20 C
+   **   ~~~   ** ...hot water temperature       = 48.19 C
    **   ~~~   ** ...Note: target water temperature should be less than or equal to the hot water temperature
    **   ~~~   ** ...Target water temperature should be less than or equal to the hot water temperature. Verify temperature setpoints and schedules.
+   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed "COOLING COIL" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -9.58
+   **   ~~~   **  ... Occurrence info = ANNUAL, 01/01 00:00 - 00:02
+   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.
    ************* Simulation Error Summary *************
    ** Warning ** The following Report Variables were requested but not generated -- check.rdd file
    **   ~~~   ** Either the IDF did not contain these elements, the variable name is misspelled,
@@ -65,16 +68,22 @@ Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 10:23,
    *************  **   ~~~   **   during Sizing 0 times.
    *************
    *************  ** Warning ** "CLOTHES WASHER_UNIT1" - Target water temperature should be less than or equal to the hot water temperature error continues...
-   *************  **   ~~~   **   This error occurred 7967 total times;
+   *************  **   ~~~   **   This error occurred 80399 total times;
    *************  **   ~~~   **   during Warmup 0 times;
    *************  **   ~~~   **   during Sizing 0 times.
-   *************  **   ~~~   **   Max=1.858703  Min=0.205696
+   *************  **   ~~~   **   Max=1.978903  Min=6.983125E-002
    *************
    *************  ** Warning ** "DISHWASHER_UNIT1" - Target water temperature should be less than or equal to the hot water temperature error continues...
-   *************  **   ~~~   **   This error occurred 7967 total times;
+   *************  **   ~~~   **   This error occurred 80399 total times;
    *************  **   ~~~   **   during Warmup 0 times;
    *************  **   ~~~   **   during Sizing 0 times.
-   *************  **   ~~~   **   Max=1.858703  Min=0.205696
+   *************  **   ~~~   **   Max=1.978903  Min=6.983125E-002
+   *************
+   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed="COOLING COIL" - Low condenser dry-bulb temperature error continues...
+   *************  **   ~~~   **   This error occurred 8 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=-5.000000E-002 [C]  Min=-9.575 [C]
    *************
    *************
    ************* ===== Final Error Summary =====
@@ -86,4 +95,4 @@ Program Version,EnergyPlus, Version 22.1.0-ed759b17ee, YMD=2025.02.10 10:23,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 5 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 18494 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  6.22sec
+   ************* EnergyPlus Completed Successfully-- 163366 Warning; 0 Severe Errors; Elapsed Time=00hr 01min  5.68sec
