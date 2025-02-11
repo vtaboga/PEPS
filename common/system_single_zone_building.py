@@ -82,6 +82,7 @@ class SingleZoneBuildingSimulation(System):
         self.zone_id = 0  # The building has a single zone
         self.heating_period = heating_period
         print(f"self.heating_period: {self.heating_period}")
+
         data_path = f'common/results/{building_type}/simulation_{simulation_id}/processed_data'
         mean, std = load_norm_constants(self.zone_id, data_path)
         state_indexes = get_processed_state_indexes(data_path)
@@ -260,48 +261,48 @@ class SingleZoneBuildingSimulation(System):
         results_path = self._results_path + f'/control_{self.controller.__class__.__name__}/'
         self.building.save_memory(results_path, final=False)
 
-        # # Get the minimum length to ensure consistency
-        # min_length = min(
-        #     len(self.building.memory[f'hvac_power_zone{self.zone_id}'][self.controller.planning_timesteps:]),
-        #     len(self.control_memory['power_predictions'])
-        # )
-
-        # # Trim all arrays to the same length
-        # self.control_memory['power'] = np.vstack(
-        #     self.building.memory[f'hvac_power_zone{self.zone_id}'][self.controller.planning_timesteps:]
-        # ).flatten()[:min_length].copy()
-
-        # self.control_memory['temperature'] = self.building.memory[f'temperature_zone{0}'][
-        #     self.controller.planning_timesteps:
-        # ][:min_length].copy()
-
-        # # Trim prediction arrays if needed
-        # self.control_memory['power_predictions'] = self.control_memory['power_predictions'][:min_length]
-        # self.control_memory['power_schedule'] = self.control_memory['power_schedule'][:min_length]
-        # self.control_memory['slacked_power_schedule'] = self.control_memory['slacked_power_schedule'][:min_length]
-        # self.control_memory['temperature_predictions'] = self.control_memory['temperature_predictions'][:min_length]
-        # self.control_memory['actions'] = self.control_memory['actions'][:min_length]
-
-        # control_memory = pd.DataFrame(self.control_memory)
-        # save_control_memory(control_memory, results_path, final=final)
-
-        self.control_memory['power'] = np.vstack(
-            self.building.memory[f'hvac_power_zone{self.zone_id}'][self.controller.planning_timesteps:]
-        ).flatten().copy()
-
-        self.control_memory['temperature'] = (
-            self.building.memory[f'temperature_zone{0}'][self.controller.planning_timesteps:].copy()
+        # Get the minimum length to ensure consistency
+        min_length = min(
+            len(self.building.memory[f'hvac_power_zone{self.zone_id}'][self.controller.planning_timesteps:]),
+            len(self.control_memory['power_predictions'])
         )
 
-        print(self.control_memory.keys())
-        print(f"control_memory power_predictions: {len(self.control_memory['power_predictions'])}")
-        print(f"control_memory power_schedule: {len(self.control_memory['power_schedule'])}")
-        print(f"control_memory slacked_power_schedule: {len(self.control_memory['slacked_power_schedule'])}")
-        print(f"control_memory temperature_predictions: {len(self.control_memory['temperature_predictions'])}")
-        print(f"control_memory actions: {len(self.control_memory['actions'])}")
+        # Trim all arrays to the same length
+        self.control_memory['power'] = np.vstack(
+            self.building.memory[f'hvac_power_zone{self.zone_id}'][self.controller.planning_timesteps:]
+        ).flatten()[:min_length].copy()
 
-        print(f"control_memory power: {len(self.control_memory['power'])}")
-        print(f"control_memory temperature: {len(self.control_memory['temperature'])}")
+        self.control_memory['temperature'] = self.building.memory[f'temperature_zone{0}'][
+            self.controller.planning_timesteps:
+        ][:min_length].copy()
+
+        # Trim prediction arrays if needed
+        self.control_memory['power_predictions'] = self.control_memory['power_predictions'][:min_length]
+        self.control_memory['power_schedule'] = self.control_memory['power_schedule'][:min_length]
+        self.control_memory['slacked_power_schedule'] = self.control_memory['slacked_power_schedule'][:min_length]
+        self.control_memory['temperature_predictions'] = self.control_memory['temperature_predictions'][:min_length]
+        self.control_memory['actions'] = self.control_memory['actions'][:min_length]
 
         control_memory = pd.DataFrame(self.control_memory)
         save_control_memory(control_memory, results_path, final=final)
+
+        # self.control_memory['power'] = np.vstack(
+        #     self.building.memory[f'hvac_power_zone{self.zone_id}'][self.controller.planning_timesteps:]
+        # ).flatten().copy()
+
+        # self.control_memory['temperature'] = (
+        #     self.building.memory[f'temperature_zone{0}'][self.controller.planning_timesteps:].copy()
+        # )
+
+        # print(self.control_memory.keys())
+        # print(f"control_memory power_predictions: {len(self.control_memory['power_predictions'])}")
+        # print(f"control_memory power_schedule: {len(self.control_memory['power_schedule'])}")
+        # print(f"control_memory slacked_power_schedule: {len(self.control_memory['slacked_power_schedule'])}")
+        # print(f"control_memory temperature_predictions: {len(self.control_memory['temperature_predictions'])}")
+        # print(f"control_memory actions: {len(self.control_memory['actions'])}")
+
+        # print(f"control_memory power: {len(self.control_memory['power'])}")
+        # print(f"control_memory temperature: {len(self.control_memory['temperature'])}")
+
+        # control_memory = pd.DataFrame(self.control_memory)
+        # save_control_memory(control_memory, results_path, final=final)

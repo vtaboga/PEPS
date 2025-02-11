@@ -1,0 +1,226 @@
+Shadowing Combinations
+..Solar Distribution=FullExterior
+..In the following, only the first 10 reference surfaces will be shown.
+..But all surfaces are used in the calculations.
+==================================
+Surface=OVERHANG_SDR_1.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=1
+..Surface=WALL_SDR_1.UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-OVERHANG_SDR_1.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=4
+..Surface=OVERHANG_SDR_2.UNIT1
+..Surface=WALL_SDR_1.UNIT1
+..Surface=WALL_SDR_2.UNIT1
+..Surface=ROOF_RIGHT_UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=OVERHANG_SDR_2.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=1
+..Surface=WALL_SDR_2.UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-OVERHANG_SDR_2.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=2
+..Surface=WALL_SDR_2.UNIT1
+..Surface=ROOF_RIGHT_UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_LDF_1.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_LDF_1.UNIT1
+==================================
+Surface=WINDOW_LDF_1.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_SDR_1.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=2
+..Surface=OVERHANG_SDR_1.UNIT1
+..Surface=OVERHANG_SDR_2.UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_SDR_1.UNIT1
+==================================
+Surface=WINDOW_SDR_1.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_LDB_1.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=2
+....Surface=DOOR_LDB_UNIT1
+....Surface=WINDOW_LDB_1.UNIT1
+==================================
+Surface=WINDOW_LDB_1.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=DOOR_LDB_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_SDL_1.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_SDL_1.UNIT1
+==================================
+Surface=WINDOW_SDL_1.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_LDF_2.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_LDF_2.UNIT1
+==================================
+Surface=WINDOW_LDF_2.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_SDR_2.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=1
+..Surface=OVERHANG_SDR_2.UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_SDR_2.UNIT1
+==================================
+Surface=WINDOW_SDR_2.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_LDB_2.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_LDB_2.UNIT1
+==================================
+Surface=WINDOW_LDB_2.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=WALL_SDL_2.UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=WINDOW_SDL_2.UNIT1
+==================================
+Surface=WINDOW_SDL_2.UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=INTER ZONE FLOOR 1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=FLOOR_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CEILING_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=INTERNALMASS_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ROOF_RIGHT_UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ROOF_LEFT_UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=iz-CEILING_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ROOF_FRONT_UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ROOF_BACK_UNIT1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_UPPER_LDF is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_LOWER_LDF is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_UPPER_SDR is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=2
+..Surface=OVERHANG_SDR_1.UNIT1
+..Surface=OVERHANG_SDR_2.UNIT1
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_LOWER_SDR is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_UPPER_LDB is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_LOWER_LDB is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_UPPER_SDL is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=BGWALL_LOWER_SDL is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=EXTFLOOR_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=iz-FLOOR_UNIT1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
