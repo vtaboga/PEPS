@@ -139,7 +139,10 @@ class SingleZoneBuildingSimulation(System):
                 time_to_start_dr_event, time_to_end_dr_event = self.send_time_to_dr_event(self.iteration_counter)
                 power_schedule = self.read_consumption_schedule(self.iteration_counter)
                 slacked_power_schedule = power_schedule * (1 - self.slack_power_constraint)
-                temperature_targets = np.tile(self.building.zones_temperature_setpoint, (self.horizon, 1))
+                temperature_targets = np.tile(
+                    self.building.zones_temperature_setpoint[:, 1-int(self.heating_period)],  # Select heating / cooling setpoint
+                    (self.horizon, 1)
+                )
                 setpoint_changes, power = self.controller.run(
                     observation=current_obs[self.zone_id],
                     weather=weather_forecast,
