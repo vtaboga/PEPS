@@ -116,6 +116,9 @@ def training(
     :param validation: whether to do validation during training
     :return:
     """
+    print("--- def training() ---")
+    print(f"model: {model}")
+    print(f"batch_length: {batch_length}")
 
     model_type = model.__name__
     base_path = f'common/results/{building}/simulation_{simulation_id}'
@@ -131,11 +134,15 @@ def training(
     mean, std = load_norm_constants(zone_id, data_path)
     state_indexes = get_processed_state_indexes(data_path)
     norm_training_data = load_data(zone_id, data_path, 'training')
+    print(f"norm_training_data.shape: {norm_training_data.shape}")
+
     training_data = prepare_batches(jnp.array(norm_training_data), batch_length)
 
     # Validation data
     if validation:
         norm_validation_data = load_data(zone_id, data_path, 'validation')
+        print(f"norm_validation_data.shape: {norm_validation_data.shape}")
+
         validation_data = prepare_batches(norm_validation_data, batch_length)
         del norm_validation_data, norm_training_data
     else:
@@ -147,6 +154,9 @@ def training(
         std=std,
         state_indexes=state_indexes
     )
+
+    print(f"training_data.shape: {training_data.shape}")
+    print(f"validation_data.shape: {validation_data.shape}")
 
     model.train_model(
         training_data=training_data,

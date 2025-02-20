@@ -2,6 +2,7 @@ import jax
 import jax.numpy as jnp
 import jax.random as jrandom
 import numpy as np
+import matplotlib.pyplot as plt
 import optax
 import diffrax
 import pickle
@@ -65,6 +66,7 @@ class ABCModel(metaclass=ABCMeta):
 
         if model_type is not None and model_type != 'stochastic':
             assert model_type in ['discrete', 'continuous']
+
         self.continuous_model = (model_type == 'continuous')
         self.zone_id = zone_id
 
@@ -84,6 +86,7 @@ class ABCModel(metaclass=ABCMeta):
         self.actions_memory = []
         self._training_logs = {}
         self.learning_rate = learning_rate
+
         if mean is not None and std is not None:
             self.normalizer = Normalizer(
                 mean_constants=mean,
@@ -104,6 +107,7 @@ class ABCModel(metaclass=ABCMeta):
             self.state_indexes = [state_indexes['hvac_power'], state_indexes['indoor_temperature']]
         else:
             raise ValueError(f'State size incorrect. Got {state_size}, should be 1 or 2.')
+
         self.input_indexes = self.get_inputs_indexes(
             include_action_lags,
             state_indexes,
@@ -119,6 +123,23 @@ class ABCModel(metaclass=ABCMeta):
         self.model_key, self.loader_key, self.validation_process_key, self.test_process_key = jrandom.split(key, 4)
         self.model = None
         self.model_parameters = None
+
+        print("--- ABCModel ---")
+        print(f"self.continuous_model: {self.continuous_model}")
+        print(f"state_indexes: {state_indexes}")
+        print(f"observation_size: {observation_size}")
+        print(f"encoder_in_size: {self.encoder_in_size}")
+        print(f"state_size: {state_size}")
+        print(f"action_size: {action_size}")
+        print(f"mean_obs_period: {mean_obs_period}")
+        print(f"input_indexes: {self.input_indexes}")
+        print(f"action_indexes: {self.action_indexes}")
+        print(f"timestamps_lag_indexes: {self.timestamps_lag_indexes}")
+        print(f"missing_data_proba: {self.missing_data_proba}")
+        print(f"include_timestep_duration: {self.include_timestep_duration}")
+        print(f"resample_future_states: {self.resample_future_states}")
+        print(f"missing_data_mask: {self.missing_data_mask}")
+
 
     @abstractmethod
     def initialize_model(self) -> Dict:
@@ -303,10 +324,15 @@ class ABCModel(metaclass=ABCMeta):
             return new_opt_state, new_params, loss
 
         print(f'------ training for {training_steps} steps ------')
+        print(f"loss_temperature_weights: {loss_temperature_weight}")
+
         if self.model_parameters is None:
             params = self.initialize_model()
         else:
             params = self.model_parameters
+
+        print(f"params: {params.keys()}")
+
         training_logs = {'n_steps': [], 'hvac_power': [], 'temperature': [], 'mean_train_loss': []}
         optimizer = optax.adabelief(self.learning_rate)
         opt_state = optimizer.init(params)
@@ -352,6 +378,9 @@ class ABCModel(metaclass=ABCMeta):
                         training_logs['hvac_power'][-early_stop_lag - 1:-1]
                     )):
                         break
+
+        # plt.plot(range(7002), losses)
+        # plt.show()
 
         self.model_parameters = params
         self._training_logs = training_logs
@@ -411,6 +440,7 @@ class ABCModel(metaclass=ABCMeta):
         encoder_inputs = jnp.flip(encoder_inputs, axis=1)
         lags_timestamps = jnp.flip(batch[:, 0, self.timestamps_lag_indexes], axis=1)
         lags_timestamps = jax.vmap(self.normalizer.normalize_lags_timestamps)(lags_timestamps)
+
         if self.mean_obs_period > 0:
             subkey, key = jrandom.split(key)
             # use the same random key for every element of the batch to keep a uniform shape
@@ -419,20 +449,24 @@ class ABCModel(metaclass=ABCMeta):
                 lags_timestamps,
                 subkey
             )
+
         if self.missing_data_proba > 0:
             subkey, key = jrandom.split(key)
             encoder_inputs = self.missing_data(encoder_inputs, subkey)
+
         if self.include_timestep_duration:
             timesteps = jax.vmap(self.compute_timesteps)(lags_timestamps)
             encoder_inputs = jnp.concatenate(
                 [jnp.expand_dims(timesteps, axis=2), encoder_inputs], axis=-1
             )
+
         if self.resample_future_states:
             future_states = self.resample(batch[:, :, self.state_indexes])
             actions = self.resample(batch[:, :, self.action_indexes])
         else:
             future_states = batch[:, :, self.state_indexes]
             actions = batch[:, :, self.action_indexes]
+
         timestamps = jnp.linspace(
             0,
             1,

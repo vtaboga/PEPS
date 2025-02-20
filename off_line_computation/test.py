@@ -124,6 +124,9 @@ def test(
 
     data_type = 'validation' if validation_data else 'test'
 
+    print(f"--- {data_type} testing ---")
+    print(f"batch_size: {batch_size}")
+
     if seeds is not None:
         for seed in seeds:
             print(f' --- Testing with seed {seed} ---')

@@ -1,2 +1,2 @@
 Settings.jax_enable_x64 = True
-Settings.simulation_seed = 1
+Settings.simulation_seed = 1234

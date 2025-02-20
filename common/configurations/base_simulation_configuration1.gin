@@ -3,7 +3,7 @@ include './common/configurations/base_configuration1.gin'
 BaseSimulation.controller_class = RandomController
 BaseSimulation.simulation_id = %SIMULATION_ID
 BaseSimulation.building_type = %BUILDING_TYPE
-BaseSimulation.heating_only = False
+BaseSimulation.heating_only = True
 BaseSimulation.weather_file = "weather_chicago_harrison_dever_2021.epw"
 BaseSimulation.zones_number = %NUMBER_OF_ZONES
 BaseSimulation.controlled_zones_id = [0]

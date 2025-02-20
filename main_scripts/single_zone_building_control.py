@@ -57,7 +57,6 @@ def parse_configuration(
     with open(temp_filename, "w") as temp_file:
         temp_file.write(modified_config)
     gin.parse_config_file(temp_filename)
-    # gin.parse_config_file("temp_config_1738836566854336000.gin")
     os.remove(temp_filename)
 
 

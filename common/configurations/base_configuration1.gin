@@ -2,9 +2,9 @@
 BUILDING_TYPE = 'house'
 SIMULATION_ID = 1
 NUMBER_OF_ZONES = 1
-PREDICTION_HORIZON = 16
+PREDICTION_HORIZON = 8 # 2 hour forecast horizon
 N_LAGS = 4
 PROCESSED_DATA_DIR = './off_line_computation/data/'
 RESULTS_DIR = './common/results/'
 SAVED_MODEL_DIR = './controllers/saved_models/'
-ENERGYPLUS_TIMESTEPS_IN_HOUR = 4
+ENERGYPLUS_TIMESTEPS_IN_HOUR = 4 # 15min timestep

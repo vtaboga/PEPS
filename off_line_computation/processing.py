@@ -64,6 +64,7 @@ def process_data(
             include_action_lags=include_action_lags,
             energyplus_timesteps_in_hour=energyplus_timesteps_in_hour
         )
+
         # standardize data (except cyclical features)
         with open(processed_data_dir + 'processed_state_indexes.json', 'r') as f:
             processed_state_indexes = json.load(f)
@@ -80,6 +81,8 @@ def process_data(
         )
 
         if len(validation_data_indexes) > 0:
+            print(f"validation_data_indexes: {validation_data_indexes}")
+
             standardize_data(
                 number_of_zones=number_of_zones,
                 processed_data_dir=processed_data_dir,
@@ -271,11 +274,15 @@ def standardize_data(
     Normalize the data using (data - mean) / std for all the features except cyclical ones.
     Results are saved in numpy a csv file. The header is the index saved in a separate json file.
     """
+    print("--- def standardize() ---")
+    print(f"data_indexes: {data_indexes}")
 
     for zone_id in range(number_of_zones):
         processed_data = []
-        for idx, i in enumerate(data_indexes):
-            filename = f'zone{zone_id}/processed_data{idx}.csv'
+        for i in data_indexes:
+        # for idx, i in enumerate(data_indexes):
+            filename = f'zone{zone_id}/processed_data{i}.csv'
+            # filename = f'zone{zone_id}/processed_data{idx}.csv'
             filepath = os.path.join(processed_data_dir, filename)
             data = np.loadtxt(filepath, delimiter=',', skiprows=1)
             processed_data.append(data)

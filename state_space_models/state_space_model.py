@@ -62,6 +62,19 @@ class SSM(ABCModel):
             std=std,
         )
 
+        print("--- SSM ---")
+        print(f"decoder_depth: {decoder_depth}")
+        print(f"decoder_dim: {decoder_dim}")
+        print(f"latent_state_size: {latent_state_size}")
+        print(f"encoder_dim: {encoder_dim}")
+        print(f"state_size: {state_size}")
+        print(f"model_output: {model_output}")
+        print(f"state_indexes: {state_indexes}")
+        print(f"model_path: {model_path}")
+        print(f"n_lags: {n_lags}")
+        print(f"state_size: {state_size}")
+        print(f"action_size: {action_size}")
+
         key = jrandom.PRNGKey(seed)
         model_key, self.loader_key, self.validation_process_key, self.test_process_key = jrandom.split(key, 4)
 
